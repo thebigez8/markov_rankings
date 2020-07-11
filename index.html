@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="home theme-bg">
+<head>
+  <title>Ranking Things</title>
+  <meta name="description" content="Markov rankings"/>
+  <meta name="author" content="E Heinzen"/>
+  <meta name="date" content="2020-07-08"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://unpkg.com/mathjs@7.0.2/dist/math.min.js"></script>
+  <script src="markov.js"></script>
+</head>
+<body>
+  <h1>Ranking Things</h1>
+  <div class="row" id="row1">
+    <div class="col width-3">
+      <label for="whattorank">What do you want to rank?</label>
+      <select id="whattorank">
+      </select>
+    </div>
+    <div class="col width-3" id="whichtorank"></div>
+    <div class="col width-3">
+      <button id="startranking">Start Ranking!</button>
+    </div>
+  </div>
+  <div class="row hidden" id="row2">
+    <div class="col width-4">
+      <img alt="Choice 1" id="choice1img" />
+      <p id="choice1p" class="text-center"></p>
+    </div>
+    <div class="col width-2">&nbsp;</div>
+    <div class="col width-4">
+      <img alt="Choice 2" id="choice2img" />
+      <p id="choice2p" class="text-center"></p>
+    </div>
+  </div>
+  <div class="row hidden" id="row3">
+    <div class="col width-2">
+      <button class="width-12" id="button1">
+        Definitely <span id="button1txt"></span>
+      </button>
+    </div>
+    <div class="col width-2">
+      <button class="width-12" id="button2">
+        <span id="button2txt"></span>
+      </button>
+    </div>
+    <div class="col width-2">
+      <button class="width-12" id="button3">
+        Neutral
+      </button>
+    </div>
+    <div class="col width-2">
+      <button class="width-12" id="button4">
+        <span id="button4txt"></span>
+      </button>
+    </div>
+    <div class="col width-2">
+      <button class="width-12" id="button5">
+        Definitely <span id="button5txt"></span>
+      </button>
+    </div>
+  </div>
+  <div class="row hidden" id="row4">
+    <div class="col width-6">
+      <h4>Rankings</h4>
+      <table class="width-9">
+        <thead>
+          <tr>
+            <th>Team</th>
+            <th>Rank</th>
+            <th>Pi</th>
+          </tr>
+        </thead>
+        <tbody id="rankings"></tbody>
+      </table>
+    </div>
+    <div class="col width-6">
+      <h4>Results</h4>
+      <table class="width-9">
+        <thead>
+          <tr>
+            <th>Team 1</th>
+            <th>Team 2</th>
+            <th>Result</th>
+            <th>k</th>
+          </tr>
+        </thead>
+        <tbody id="results"></tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

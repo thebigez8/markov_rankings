@@ -1,0 +1,48 @@
+* {box-sizing: border-box;}
+body {background-color: #fff; padding: 0 8px 8px 8px; margin: 8px; font-size: 16px;}
+.row:after {content: " "; display: table; clear: both;}
+.width-2 {width: 16.66666667%; min-width: 16.66666667%;}
+.width-3 {width: 25%;}
+.width-4 {width: 33.33333333%;}
+.width-5 {width: 41.66666667%;}
+.width-6 {width: 50%;}
+.width-7 {width: 58.33333333%;}
+.width-8 {width: 66.66666667%;}
+.width-9 {width: 75%;}
+.width-12 {width: 100%;}
+.right {float: right;}
+.col, .left {float: left;}
+.text-left {text-align: left;}
+.text-center {text-align: center;}
+.text-right {text-align: right;}
+p {margin: 8px 0;}
+th, td {text-align: center; padding: 5px 10px;}
+
+.hidden {display:none;}
+
+
+
+label {display: inline-block; width: 100%;}
+select {display: block; width: 100%; margin: 10px 0; padding: 5px;}
+input[type="checkbox"] {display: inline-block; width: initial;}
+.scroller-x {overflow-x: auto;}
+.scroller-none {overflow: hidden;}
+
+table {border-collapse: collapse;}
+.bordered {border: 1px solid black;}
+table.bordered th, table.bordered td {border: 1px solid black;}
+.round {border-radius: 50%;}
+.centered {margin-left: auto; margin-right: auto;}
+.thickbottom {border-bottom: 2px solid black;}
+
+img {display:block; width: 100%; height: auto;}
+
+.showifsmall {display: none;}
+@media (max-width: 575px){
+  .col {width: 100%;} /* overrule any other widths specified */
+  th, td {padding: 5px;}
+  table.large-table {font-size: 0.8em;}
+  .hideifsmall {display: none;}
+  tr.showifsmall {display: table-row;}
+  .showifsmall.hidden {display: none;} /* use the hidden */
+}
