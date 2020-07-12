@@ -55,11 +55,11 @@ function init()
   
   gid("startranking").addEventListener("click", startRank);
   
-  gid("button1").addEventListener("click", function(){rankIt(0.9)});
-  gid("button2").addEventListener("click", function(){rankIt(0.7)});
-  gid("button3").addEventListener("click", function(){rankIt(0.5)});
-  gid("button4").addEventListener("click", function(){rankIt(0.3)});
-  gid("button5").addEventListener("click", function(){rankIt(0.1)});
+  gid("button1").addEventListener("click", function(){rankIt(0.9, 1)});
+  gid("button2").addEventListener("click", function(){rankIt(0.7, 1)});
+  gid("button3").addEventListener("click", function(){rankIt(0.5, 0.5)});
+  gid("button4").addEventListener("click", function(){rankIt(0.7, 0)});
+  gid("button5").addEventListener("click", function(){rankIt(0.9, 0)});
 }
 
 function changeOpts()
@@ -140,17 +140,17 @@ function makeRanks()
     var tds2 = trs[j].getElementsByTagName("TD");
     var m = nms.indexOf(tds2[0].innerHTML);
     var n = nms.indexOf(tds2[1].innerHTML);
-    var iWon = Number(tds2[2].innerHTML);
+    var mWon = Number(tds2[2].innerHTML);
     var k = Number(tds2[3].innerHTML);
 
     n_i[m] += 1;
     n_i[n] += 1;
     
-    matrix[n][m] += k*(1 - iWon) + (1 - k)*iWon; // if n won, go to n with prob=k; else if m won, go with prob=(1-k)
-    matrix[m][n] += k*iWon + (1 - k)*(1 - iWon);
+    matrix[n][m] += k*(1 - mWon) + (1 - k)*mWon; // if n won, go to n with prob=k; else if m won, go with prob=(1-k)
+    matrix[m][n] += k*mWon + (1 - k)*(1 - mWon);
     
-    matrix[m][m] += k*iWon + (1 - k)*(1 - iWon);
-    matrix[n][n] += k*(1 - iWon) + (1 - k)*iWon;
+    matrix[m][m] += k*mWon + (1 - k)*(1 - mWon);
+    matrix[n][n] += k*(1 - mWon) + (1 - k)*mWon;
   }
   for(var l = 0; l < matrix.length; l++)
   {
@@ -163,18 +163,16 @@ function makeRanks()
   }
   b[b.length - 1] = 1;
   
-  var ranks = math.lusolve(matrix, b);  
-  console.log(ranks);
+  var ranks = math.lusolve(matrix, b);
   for(var q = 0; q < ranks.length; q++)
   {
     ranks[q][1] = nms[q];
   }
   ranks.sort(function(a, b){return b[0] - a[0];});
-  console.log(ranks);
   return ranks;
 }
 
-function rankIt(howmuch)
+function rankIt(howmuch, won)
 {
   var choice1 = gid("choice1p").innerHTML;
   var choice2 = gid("choice2p").innerHTML;
@@ -184,7 +182,7 @@ function rankIt(howmuch)
   var td2 = document.createElement("TD");
   td2.innerHTML = choice2;
   var td3 = document.createElement("TD");
-  td3.innerHTML = (howmuch > 0.5) + 0.5*(howmuch == 0.5);
+  td3.innerHTML = won;
   var td4 = document.createElement("TD");
   td4.innerHTML = howmuch;
   
