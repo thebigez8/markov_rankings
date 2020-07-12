@@ -15,8 +15,14 @@ var OPTS = {
     "Wheaties": "www/images/wheaties.jpg"
   },
   "MN State Parks": {
+    "Afton": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00100.jpg",
+    "Blue Mounds": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00121.jpg",
     "Forestville": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00148.jpg",
+    "Gooseberry Falls": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00172.jpg",
     "Jay Cooke": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00187.jpg",
+    "Lake Louise": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00214.jpg",
+    "Nerstrand Big Woods": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00241.jpg",
+    "Tettegouche": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00269.jpg",
     "Whitewater": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00280.jpg"
   }
 };
@@ -76,6 +82,13 @@ function changeOpts()
 
 function startRank()
 {
+  if(whichToRank().length < 2)
+  {
+    gid("error").classList.remove("hidden");
+    return false;
+  }
+  
+  gid("error").classList.add("hidden");
   gid("row1").classList.add("hidden");
   gid("row2").classList.remove("hidden");
   gid("row3").classList.remove("hidden");
