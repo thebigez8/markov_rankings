@@ -6,15 +6,18 @@ function gid(nm)
 
 var OPTS = {
   "Cereals": {
-    "Cinnamon Toast Crunch": "www/images/toast_crunch.jpg",
+    "Basic 4": "www/images/basic4.jpg",
     "Captain Crunch": "www/images/captain_crunch.jpg",
+    "Cinnamon Toast Crunch": "www/images/toast_crunch.jpg",
+    "Golden Grahams": "www/images/golden_grahams.jpg",
     "Honey Nut Cheerios": "www/images/honey_nut.jpg",
-    "Basic 4": "www/images/basic4.jpg"
+    "Lucky Charms": "www/images/lucky_charms.jpg",
+    "Wheaties": "www/images/wheaties.jpg"
   },
   "MN State Parks": {
-    "Whitewater": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00280.jpg",
+    "Forestville": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00148.jpg",
     "Jay Cooke": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00187.jpg",
-    "Forestville": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00148.jpg"
+    "Whitewater": "https://images.dnr.state.mn.us/destinations/state_parks/banners/spk00280.jpg"
   }
 };
 
